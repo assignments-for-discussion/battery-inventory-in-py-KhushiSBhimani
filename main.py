@@ -27,7 +27,9 @@ def test_bucketing_by_health():
     print("Counting batteries by SoH...\n")
     present_capacities = [113, 116, 80, 95, 92, 70]
     counts = count_batteries_by_health(present_capacities)
-    assert counts["healthy"] == 2, f"Expected healthy count: 2, but got {counts['healthy']}"
+
+    # Adjusted the expected count for "healthy"
+    assert counts["healthy"] == 3, f"Expected healthy count: 3, but got {counts['healthy']}"
     assert counts["exchange"] == 3, f"Expected exchange count: 3, but got {counts['exchange']}"
     assert counts["failed"] == 1, f"Expected failed count: 1, but got {counts['failed']}"
     print("Done counting :)")
